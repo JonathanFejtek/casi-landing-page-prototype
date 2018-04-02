@@ -32,37 +32,35 @@ class App extends React.Component {
     render() {
       return (
         <div>
-          <div className="wrapper">
-            <img className = "featured-conference-img" src="assets/featured-conference.png" alt=""/>
-            <div className="landing-page-option-buttons">
-              <button className = {this.state.pageView === 'subscribe' ? 'option-toggled': null}
-                onMouseEnter = {() => this.buttonMouseOver('subscribe')}
-                onMouseLeave = {this.resetButtonMouseOver}
-                onClick = {()=> this.handleOptionClick('subscribe')}
-              >
-                Subscribe
-              </button>
-              <button 
-                className = {this.state.pageView === 'conferences' ? 'option-toggled': null}
-                onMouseLeave = {this.resetButtonMouseOver} 
-                onMouseEnter = {() => this.buttonMouseOver('conferences')}
-                onClick = {()=> this.handleOptionClick('conferences')}
-              >
-                Upcoming Conferences
-              </button>
-              <button 
-                className = {this.state.pageView === 'join' ? 'option-toggled': null}
-                onMouseLeave = {this.resetButtonMouseOver} 
-                onMouseEnter = {() => this.buttonMouseOver('join')}
-                onClick = {()=> this.handleOptionClick('join')}
-              >
-                Become a member
-              </button>    
-            </div> 
-            <div className={`option-info-text-area ${this.state.showOptionInfo !== false ? 'option-info-show' : 'option-info-hide'}`}>
-              {this.displayOptionInfo()}    
+
+          <header className = "page-header">
+            <div className="wrapper">
+             <nav>
+               <ul>
+                 <li>
+                   <a target="_blank" href="http://www.casi.ca/about-us/vision-and-mission/">CASI Mission</a>
+                 </li>
+               </ul>
+               <ul>
+                 <li>
+                   <a target="_blank" href = "http://www.casi.ca">CASI Home</a>
+                 </li>
+               </ul>
+               <ul>
+                 <li>
+                   <a target="_blank" href="http://www.casi.ca/membership/apply-to-become-a-member/">Become A Member</a>
+                 </li>
+               </ul>
+             </nav>
             </div>
-             {this.state.pageView === 'subscribe' ? <SubscribeForm /> : null }  
+          </header>
+
+          <div className="wrapper">
+            <a target="_blank" href="http://www.casi.ca/conferences-events/astro-2018/">
+              <img className = "featured-conference-img" src="assets/featured-conference.png" alt=""/>
+            </a>
+            
+             <SubscribeForm />  
           </div>
         </div>
       )
