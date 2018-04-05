@@ -26,16 +26,16 @@ export class SubscribeForm extends React.Component{
 
                     <div className="form-header-section">                    
                         <ul>
-                            <li>Tours</li>
-                            <li>Webinars</li>
+                            <li>Networking</li>
+                            <li>Monthly Presentations</li>
                             <li>E-Newsletter</li>
                             <li>Annual Conferences</li>
-                            <li>CASI Connect Monitoring</li>
-                            <li>Monthly Presentations</li>
+                            <li>Webinars</li>
+                            <li>Tours</li>
+                            <li>CASI Connect Mentoring</li>
                             <li>Student Awards</li>
-                            <li>National Awards</li>
-                            <li>Technical Workshops</li>
-                            <li>Networking</li>
+                            <li>National Senior Awards</li>
+                            <li>Technical Workshops</li>   
                         </ul>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ export class SubscribeForm extends React.Component{
                         value = {this.state.affiliation} 
                         onInput = {this.handleInput} 
                         id = "affiliation" 
-                        placeholder = "Affiliation (optional)" 
+                        placeholder = "Affiliation" 
                         type="text"
                     />
                     <input 

@@ -6,9 +6,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
     box-sizing : border-box;
 }
 
-body{
-    
-}
 
 .space-bg{
     background : url('../../assets/bg1.jpg');
@@ -110,15 +107,16 @@ body{
     }
     li{
         list-style-position: inside;
+        font-size : 15px;
     }
 }
 
 .form-header-section:first-of-type{
-    padding-right : 10px;
+    padding-right : 2px;
 }
 
 .form-header-section:last-of-type{
-    padding-left : 10px;
+    padding-left : 2px;
 }
 
 .subscribe-form{
@@ -135,7 +133,8 @@ body{
     background-color : black;
     color : white;
     margin-bottom : 10px;
-    padding : 4px;
+    padding : 10px;
+
     a{
         color : white;
         text-decoration : none;
@@ -143,7 +142,8 @@ body{
 
     li{
           list-style-type: none;  
-          margin-left : 24px;
+          margin-left : 36px;
+          font-size : 18px;
     }
     
 
@@ -178,6 +178,12 @@ tr{
     padding : 30px;
 }
 
+.ad-text{
+    margin : 0 auto;
+    max-width : 400px;
+    margin-top : 100px;
+}
+
 @media (max-width: 920px){
     .featured-conference-img{
         width : 100%;
@@ -193,10 +199,10 @@ tr{
         input{
             width : 100%;
         }
-    }    
+    }     
 }
 
-@media (max-width: 520px){
+@media (max-width: 540px){
     .form-header{
         flex-wrap : wrap;
     }
@@ -208,7 +214,12 @@ tr{
     .page-header{
         nav{
             justify-content : space-between;
+            flex-flow : column;
             font-size : 14px;
+        }
+        li{
+            margin : 0;
+            padding : 2px;
         }
     }
 }
