@@ -7,6 +7,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 }
 
 body{
+    
+}
+
+.space-bg{
     background : url('../../assets/bg1.jpg');
 }
 
@@ -150,6 +154,29 @@ body{
     }
 }
 
+table{
+    width : 95%;
+    margin : 0 auto;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+th, td{
+    padding : 16px;
+    border-style : solid;
+    border-width : 1px;
+}
+
+tr{
+    border-style : solid;
+    border-width : 1px;
+}
+
+.landing-page-header{
+    text-align : center;
+    padding : 30px;
+}
 @media (max-width: 920px){
     .featured-conference-img{
         width : 100%;

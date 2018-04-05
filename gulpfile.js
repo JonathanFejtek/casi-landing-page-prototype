@@ -34,6 +34,24 @@ gulp.task('js', () => {
 		.pipe(reload({stream:true}));
 });
 
+
+gulp.task('jsb', () => {
+	return browserify('dev/scripts/admin-app.js', {debug: true})
+		.transform('babelify', {
+			sourceMaps: true,
+			presets: ['env','react']
+		})
+		.bundle()
+		.on('error',notify.onError({
+			message: "Error: <%= error.message %>",
+			title: 'Error in JS 💀'
+		}))
+		.pipe(source('admin-app.js'))
+		.pipe(buffer())
+		.pipe(gulp.dest('public/scripts'))
+		.pipe(reload({stream:true}));
+});
+
 gulp.task('bs', () => {
 	return browserSync.init({
 		server: {
@@ -42,8 +60,8 @@ gulp.task('bs', () => {
 	});
 });
 
-gulp.task('default', ['bs','js','styles'], () => {
-	gulp.watch('dev/**/*.js',['js']);
+gulp.task('default', ['bs','js','jsb','styles'], () => {
+	gulp.watch('dev/**/*.js',['js','jsb']);
 	gulp.watch('dev/**/*.scss',['styles']);
 	gulp.watch('./public/styles/style.css',reload);
 });
