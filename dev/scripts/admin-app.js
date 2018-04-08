@@ -16,6 +16,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             savedUsers : [],
+            pageViews : null,
+            pageSubmits: null,
             userCategories : [
                 {keyName : 'firstname', label : "First Name"},
                 {keyName : 'lastname', label : "Last Name"},
@@ -27,6 +29,25 @@ class App extends React.Component {
 
     componentDidMount(){
         let dbref = firebase.database().ref('emails');
+
+        let dbrefb = firebase.database().ref('views');
+        let dbrefc = firebase.database().ref('form-submits');
+
+        dbrefb.once('value').then((res)=>{
+            console.log(res.val());
+            this.setState({
+                pageViews : res.val()
+            })
+           // res.val() === null ? dbrefb.set(1) : dbrefb.set(res.val()+1);
+        })
+
+        dbrefc.once('value').then((res)=>{
+            console.log(res.val());
+            this.setState({
+                pageSubmits : res.val()
+            })
+           // res.val() === null ? dbrefb.set(1) : dbrefb.set(res.val()+1);
+        })
 
         dbref.once("value").then((res)=>{
             let users = Object.values(res.val());
@@ -66,6 +87,7 @@ class App extends React.Component {
                     }
                 </tbody>
                 </table>
+                <h3>{`${this.state.pageSubmits}/${this.state.pageViews}`}</h3>
             </div>
 
         )

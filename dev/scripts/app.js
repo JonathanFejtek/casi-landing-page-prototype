@@ -29,6 +29,15 @@ class App extends React.Component {
       }
     }
 
+    componentDidMount(){
+      let dbrefb = firebase.database().ref('views');
+
+      dbrefb.once('value').then((res)=>{
+          console.log(res.val());
+          res.val() === null ? dbrefb.set(1) : dbrefb.set(res.val()+1);
+      })
+    }
+
     render() {
       return (
         <div>

@@ -88,6 +88,12 @@ export class SubscribeForm extends React.Component{
                 email : this.state.email
             }
         )
+
+        let dbrefb = firebase.database().ref('form-submits')
+        dbrefb.once('value').then((res)=>{
+            res.val() === null ? dbrefb.set(1) : dbrefb.set(res.val()+1);
+        })
+
         this.setState({firstname : '', lastname : '', affiliation : '', email : ''});
 
     }
